@@ -1,0 +1,184 @@
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script type="text/javascript">google.load("jquery", "1.3.2");</script>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+      rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="./resources/style.css" media="screen"/>
+
+<html lang="en">
+<head>
+  	<title> 
+        NeuralBF: Neural Bilateral Filtering for Top-down Instance Segmentation on Point Clouds
+    </title>
+      <!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/
+          if you update and want to force Facebook to re-scrape. -->
+  	<meta property="og:image" content="./resources/teaser.gif"/>
+  	<meta property="og:title" content="NeuralBF: Neural Bilateral Filtering for Top-down Instance Segmentation on Point Clouds." />
+  	<meta property="og:description" content=" " />
+    <!-- Twitter automatically scrapes this. Go to https://cards-dev.twitter.com/validator?
+        if you update and want to force Twitter to re-scrape. -->
+    <meta property="twitter:card"          content="summary" />
+    <meta property="twitter:title"         content="NeuralBF" />
+    <meta property="twitter:description"   content="NeuralBF: Neural Bilateral Filtering for Top-down Instance Segmentation on Point Clouds." />
+    <meta property="twitter:image"         content="./resources/teaser.gif" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Add your Google Analytics tag here -->
+    <script async
+            src="https://www.googletagmanager.com/gtag/js?id=UA-97476543-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-97476543-1');
+    </script>
+
+</head>
+
+<body>
+<div class="container">
+    <div class="title">
+        NeuralBF: Neural Bilateral Filtering for Top-down Instance Segmentation on Point Clouds.
+    </div>
+
+    <div class="venue">
+        ArXiv (2022) 
+    </div>
+
+    <br><br>
+    <div class="author">
+        <a href="http://wsunid.github.io" target="_blank">Weiwei Sun</a> <sup>1 3 *</sup> 
+    </div>
+    <div class="author">
+        <a href="http://drebain.com" target="_blank">Daniel Rebain </a> <sup>1</sup> 
+    </div>
+    <div class="author">
+        <a href="http://www.cs.toronto.edu/~rjliao" target="_blank">Renjie Liao </a> <sup>1</sup> 
+    </div>
+    <div class="author">
+        <a href="https://scholar.google.com/citations?user=3cGmSugAAAAJ&hl=en" target="_blank">Vladimir Tankovich </a> <sup>3</sup> 
+    </div>
+    <div class="author">
+        <a href="https://scholar.google.com/citations?user=u6IqTfoAAAAJ&hl=en" target="_blank">Soroosh Yazdani </a> <sup>3</sup> 
+    </div>
+    <div class="author">
+        <a href="https://www.cs.ubc.ca/~kmyi" target="_blank">Kwang Moo Yi</a> <sup>1</sup> 
+    </div>
+    <div class="author">
+        <a href="https://taiya.github.io" target="_blank">Andrea Tagliasacchi</a> <sup>2 3</sup>
+    </div>
+
+    <br><br>
+
+    <div class="affiliation"><sup>1</sup> University of British Columbia </div>
+    <div class="affiliation"><sup>2</sup> Simon Fraser University  </div>
+    <div class="affiliation"><sup>3</sup> Google Research  </div>
+    <div class="affiliation"><sup>*</sup> Work partially done during an internship at Google. </div> 
+
+    <br><br>
+
+    <div class="links"><a href="resources/paper.pdf">[Paper]</a></div>
+    <!-- <div class="links"><a href="https://youtu.be/tUQJV2W7Z8g">[Video]</a></div> -->
+    <!-- <div class="links"><a href="https://github.com/canonical-capsules/canonical-capsules">[Code]</a></div> -->
+    <div class="links"><a href="https://arxiv.org/abs/2012.04718">[ArXiv]</a></div>
+
+    <br><br><br>
+
+    <hr>
+    <br>
+    <p style="width: 80%;"> 
+        <b>TL;DR:</b> 
+       A novel instance parameteraization for top-down instance segmentation on point clouds. 
+    </p>
+
+    <img style="width: 80%;" src="resources/teaser.png" alt="Teaser figure."/>
+    <br>
+    <!-- <img style="width: 80%;" src="./resources/teaser.jpg" alt="Teaser figure."/> -->
+    <br>
+    <hr>
+    <h1>Abstract</h1>
+    <p style="width: 80%;">
+    We introduce a method for instance proposal generation for 3D point clouds. 
+    Existing techniques typically directly regress proposals in a single feed-forward step, leading to inaccurate estimation. 
+    We show that this serves as a critical bottleneck, and propose a method based on iterative bilateral filtering with learned kernels. 
+    Following the spirit of bilateral filtering, we consider both the deep feature embeddings of each point, as well as their locations in the 3D space. 
+    We show via synthetic experiments that our method brings drastic improvements when generating instance proposals for a given point of interest. We further validate our method on the challenging ScanNet benchmark, 
+    achieving the best instance segmentation performance amongst the sub-category of top-down methods.
+    </p>
+    <br><br>
+    <hr>
+    <h1>Convex hulls in 2D</h1> 
+    <p style="width: 80%;"> 
+        <b>Query a single instance: </b> Given query points (red points), we approximate the target instance with convex hull.
+    </p>
+    <br><br>
+    <img style="width: 60%;" src="resources/cvx2d.gif" alt="Teaser figure."/>
+    <br><br>
+    <p style="width: 60%;">
+        &nbsp;    <span class="points-label" style="background-color: rgb(235, 50, 35)"></span>
+        Query points     
+        &nbsp; <span class="points-label" style="background-color: rgb(120, 31, 34)"></span>
+        Points inside convex hull 
+        &nbsp; <span class="points-label" style="background-color: rgb(0, 13, 123)"></span>
+        Points outside convex hull 
+        <br> 
+        &nbsp; <span class="line" style="background-color: rgb(173, 0, 171)"></span>
+        Polytopes 
+        &nbsp; <span class="lines-label" style="background-color: rgb(235, 50, 35 )"></span>
+        <span class="lines-label" style="background-color: rgb(235, 50, 35 )"></span>
+        <span class="lines-label" style="background-color: rgb(235, 50, 35 )"></span>
+        <span class="lines-label" style="background-color: rgb(235, 50, 35 )"></span>
+        Convex hull 
+    </p>
+    <br>
+    <hr>
+    <h1>Interactive Results in 3D </h1>
+    <iframe width="80%" height="480px" src="./resources/3d_vis/index.html" style="border: 1px solid gray" allowfullscreen></iframe>
+
+
+    <hr>
+    <h1>Paper</h1>
+    <div class="paper-thumbnail">
+        <a href="resources/paper.pdf">
+            <img class="layered-paper-big" width="100%" src="./resources/paper.png" alt="Paper thumbnail"/>
+        </a>
+    </div>
+    <div class="paper-info">
+        <h3>NeuralBF: Neural Bilateral Filtering for Top-down Instance Segmentation on Point Clouds
+        </h3>
+        <p>Weiwei Sun, Daniel Rebain, Renjie Liao, Vladimir Tankovich, Soroosh Yazdani, Kwang Moo Yi, Andrea Tagliasacchi </p>
+        <p>In ArXiv.</p>
+        <pre><code>@article{sun2022neuralbf,
+        title = {NeuralBF: Neural Bilateral Filtering for Top-down Instance Segmentation on Point Clouds},
+        author = {Weiwei Sun, Daniel Rebain, Renjie Liao, Vladimir Tankovich, Soroosh Yazdani, Kwang Moo Yi, Andrea Tagliasacchi},
+        booktitle = ArXiv,
+        year = {2022}}
+        </code></pre>
+    </div>
+
+    <br><br>
+    <hr>
+    <!-- <hr>
+
+    <h1>Method Overview</h1>
+    <img style="width: 80%;" src="./resources/method.png"
+         alt="Method overview figure"/>
+    <br>
+    <a class="links" href="https://github.com/canonical-capsules/canonical-capsules">[Code]</a> -->
+    <hr>
+
+    <h1>Acknowledgements</h1> 
+    <p style="width: 80%;">
+        This work was supported by the Natural Sciences and Engineering Research Council of Canada (NSERC) Discovery Grant, NSERC Collaborative Research and Development Grant, Google, Digital Research Alliance of Canada, and Advanced Research Computing at the University of British Columbia.
+        <br><br>
+        This template was originally made by <a href="http://web.mit.edu/phillipi/">Phillip Isola</a> and <a href="http://richzhang.github.io/">Richard Zhang</a> for a <a href="http://richzhang.github.io/colorization/">colorful project</a>, and inherits the modifications made by <a href="canonical-capsules.github.io">Canonical capsules</a>.
+        The code can be found <a href="https://github.com/neuralbf/neuralbf.github.io">here</a>.
+    </p>
+
+    <br><br>
+    </div>
+
+</body>
+
+</html>
