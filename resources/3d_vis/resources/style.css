@@ -13,7 +13,9 @@ body {
 }
 
 #visualization {
-    margin-top: 2em;
+    /* margin-top: 2em; */
+    margin: 0 auto;
+    width: 100%;
     display: flex;
     justify-content: center;
 }
