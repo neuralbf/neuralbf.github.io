@@ -7,8 +7,8 @@ import GUI from "./lilgui.js";
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xffffff);
-const width = window.innerWidth;
-const height = window.innerHeight - 200;
+const width = 1000 - 4;
+const height = 800;
 const ratio = width / height;
 const camera = new THREE.PerspectiveCamera(75, ratio, 0.1, 1000);
 camera.up = new THREE.Vector3(0, 0, 1);
@@ -139,7 +139,7 @@ setTimeout(removeLoadMsg, 15000.0); // This is definitely how loading works, tru
 
 
 // Set up GUI
-const gui = new GUI();
+const gui = new GUI({ container: document.getElementById("controls") });
 gui.onChange(function () {
     scenesData.forEach(function (sd) {
         if (guiState.showSeeds) {

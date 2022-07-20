@@ -5,7 +5,6 @@ body {
 }
 
 .tbl_video {
-    /* border: 2px solid gray; */
     width: 80%;
     margin: 0 auto;
     text-align: center;
@@ -17,6 +16,32 @@ body {
     max-width: 1200px;
     text-align: center;
     display: block;
+}
+
+#visualization {
+    margin-top: -3em;
+}
+
+#canvas {
+    border-style: solid;
+    border-width: 2px;
+    border-color: #1f1f1f;
+}
+
+#load-warning {
+    position: relative;
+    color: red;
+    font-weight: bold;
+    font-size: 2em;
+    font-family: monospace;
+}
+
+.lil-gui {
+    --width: 1000px;
+}
+
+.lil-gui>.title {
+    font-size: 1em;
 }
 
 .title {
@@ -42,6 +67,7 @@ body {
     width: 95%;
     max-width: 450px;
 }
+
 .points-label {
     margin-top: 2px;
     margin-bottom: 0px;
@@ -53,6 +79,7 @@ body {
     display: inline-block;
     border: 0px solid black;
 }
+
 .lines-label {
     margin-top: 0px;
     margin-bottom: 3px;
@@ -64,7 +91,8 @@ body {
     display: inline-block;
     border: 0px solid black;
 }
-.line{
+
+.line {
     margin-top: 2px;
     margin-bottom: 3px;
     margin-left: -2px;
@@ -74,7 +102,7 @@ body {
     border-radius: 0%;
     display: inline-block;
     border: 0px solid black;
-    }
+}
 
 .links {
     font-size: 22px;
@@ -86,7 +114,7 @@ body {
     position: relative;
     overflow: hidden;
     width: 80%;
-    padding-top: 45%; /* Formula for 16:9 Aspect Ratio: width * 9 / 16 */
+    padding-top: 45%;
 }
 
 .video-container iframe {
@@ -181,7 +209,8 @@ pre code {
     font-size: 14px;
 }
 
-a:link, a:visited {
+a:link,
+a:visited {
     color: #1367a7;
     text-decoration: none;
 }
@@ -193,17 +222,28 @@ a:hover {
 .layered-paper-big {
     /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
     box-shadow:
-            0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
-            5px 5px 0 0px #fff, /* The second layer */
-            5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
-            10px 10px 0 0px #fff, /* The third layer */
-            10px 10px 1px 1px rgba(0,0,0,0.35), /* The third layer shadow */
-            15px 15px 0 0px #fff, /* The fourth layer */
-            15px 15px 1px 1px rgba(0,0,0,0.35), /* The fourth layer shadow */
-            20px 20px 0 0px #fff, /* The fifth layer */
-            20px 20px 1px 1px rgba(0,0,0,0.35), /* The fifth layer shadow */
-            25px 25px 0 0px #fff, /* The fifth layer */
-            25px 25px 1px 1px rgba(0,0,0,0.35); /* The fifth layer shadow */
+        0px 0px 1px 1px rgba(0, 0, 0, 0.35),
+        /* The top layer shadow */
+        5px 5px 0 0px #fff,
+        /* The second layer */
+        5px 5px 1px 1px rgba(0, 0, 0, 0.35),
+        /* The second layer shadow */
+        10px 10px 0 0px #fff,
+        /* The third layer */
+        10px 10px 1px 1px rgba(0, 0, 0, 0.35),
+        /* The third layer shadow */
+        15px 15px 0 0px #fff,
+        /* The fourth layer */
+        15px 15px 1px 1px rgba(0, 0, 0, 0.35),
+        /* The fourth layer shadow */
+        20px 20px 0 0px #fff,
+        /* The fifth layer */
+        20px 20px 1px 1px rgba(0, 0, 0, 0.35),
+        /* The fifth layer shadow */
+        25px 25px 0 0px #fff,
+        /* The fifth layer */
+        25px 25px 1px 1px rgba(0, 0, 0, 0.35);
+    /* The fifth layer shadow */
     margin-left: 10px;
     margin-right: 45px;
 }
